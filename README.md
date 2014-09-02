@@ -5,4 +5,5 @@ I'm documenting the symlinks here, too.
 ln -s $HOME/src/dotfiles/.bashrc $HOME/.bashrc
 ln -s $HOME/src/dotfiles/.vimrc $HOME/.vimrc
 ln -s $HOME/src/dotfiles/.liquidpromptrc $HOME/.config/liquidpromptrc
+ln -s $HOME/src/dotfiles/.gitconfig $HOME/.gitconfig
 ```

@@ -1,0 +1,5 @@
+[user]
+	name = Andre Jaenisch
+	email = andre.jaenisch@openmailbox.org
+[push]
+	default = simple
