@@ -3,4 +3,5 @@ I'm documenting the symlinks here, too.
 
 ```bash
 ln -s $HOME/src/dotfiles/.bashrc $HOME/.bashrc
+ln -s $HOME/src/dotfiles/.vimrc $HOME/.vimrc
 ```
