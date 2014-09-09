@@ -84,6 +84,6 @@ set number
 colorscheme elflord
 
 set runtimepath+=~/src/vim-addon-manager/
-call vam#ActivateAddons(["vim-haxe","The_NERD_tree","vimlatex","github:klen/python-mode", "github:LaTeX-Box-Team/LaTeX-Box"], { 'auto_install': 1 }) 
+call vam#ActivateAddons(["vim-haxe","The_NERD_tree","vimlatex","github:jmarkow/vim-matlab","github:tpope/vim-fugitive","github:klen/python-mode", "github:LaTeX-Box-Team/LaTeX-Box"], { 'auto_install': 1 }) 
 
 :nmap <silent> <F2> :NERDTreeToggle<CR>
