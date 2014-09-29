@@ -81,9 +81,14 @@ endif
 
 " User defined settings
 set number
-colorscheme elflord
+colorscheme evening
+
+:set tabstop=4
+:set shiftwidth=4
+:set expandtab
 
 set runtimepath+=~/src/vim-addon-manager/
-call vam#ActivateAddons(["vim-haxe","The_NERD_tree","vimlatex","github:klen/python-mode", "github:LaTeX-Box-Team/LaTeX-Box"], { 'auto_install': 1 }) 
+call vam#ActivateAddons(["vim-haxe","The_NERD_tree","vimlatex","github:klen/python-mode", "github:LaTeX-Box-Team/LaTeX-Box", "github:tpope/vim-fugitive"], { 'auto_install': 1 }) 
 
 :nmap <silent> <F2> :NERDTreeToggle<CR>
+:nmap <silent> <F3> :Gstatus<CR>
