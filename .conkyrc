@@ -1,0 +1,116 @@
+# Conky, a system monitor, based on torsmo
+#
+# Any original torsmo code is licensed under the BSD license
+#
+# All code written since the fork of torsmo is licensed under the GPL
+#
+# Please see COPYING for details
+#
+# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+# Copyright (c) 2005-2010 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+# All rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+# first two commands to enable utf8
+use_xft yes
+override_utf8_locale yes
+alignment top_right
+background no
+border_width 1
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+double_buffer yes
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+use_xft yes
+xftfont Comic Sans Mono:size=10
+gap_x 5
+gap_y 5
+minimum_size 290 5
+maximum_width 290
+net_avg_samples 2
+no_buffers yes
+text_buffer_size 512 # default 256
+out_to_console no
+out_to_stderr no
+extra_newline no
+own_window yes
+own_window_type conky
+own_window_transparent yes
+own_window_hints below,undecorated,skip_pager,skip_taskbar,sticky
+stippled_borders 0
+total_run_times 0
+update_interval 1.0
+uppercase no
+use_spacer none
+
+
+TEXT
+${font Verdana:style=Bold:size=14}${color green}${alignc}${time %A, %H:%M:%S}
+${font Verdana:size=10}${alignc}${time %B, %d %b %Y}
+
+${font Verdana:size=12}${alignc}${nodename} - ${sysname} on ${machine}
+${alignc}${kernel}
+${stippled_hr}
+${alignc}${color green} HP Pavilion - Chassis Version
+${alignc} ${font} ${color orange}Load: ${color}$loadavg ${color orange}- IP: ${color} ${addr wlan0}
+${color orange}Prozesse:${color} ${processes} ${color orange}Laufend:${color} ${running_processes} ${color orange}CPU-Temp:${color} ${execi 10 sensors | sed -n '3p' | sed 's/temp1:[ ]*//' | cut -d" " -f1}
+${color orange}Prozessor: ${alignr}${color} ${execi 99999 cat /proc/cpuinfo | grep "cpu MHz" -m1 | cut -d":" -f2 | cut -d" " -f2-} MHz, ${alignr}${execi 99999 cat /proc/cpuinfo | grep "cache size" -m1 | cut -d":" -f2 | cut -d" " -f2-} Cache
+${color orange}Motherboard ${alignr}${color} ASUSTek NARRA2
+${color orange}BIOS ${alignr}${color} Phoenix Technologies 5.11
+${alignr} ${color} ${execi 99999 cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2-}
+${color orange}Audio ${alignr}${color} NVIDIA MCP61 HD Audio
+${color orange}Graphik ${alignr}${color} NVIDIA GeForce 6150SE
+
+${color green}CPU : ${alignr}${color} $cpu%
+${color #00ffff}${cpubar}
+${color green}RAM (aktuell/max): ${alignr}${color} $mem/$memmax - $memperc%
+${color #00ffff}${membar}
+${color green}Swap (aktuell/max): ${alignr}${color} $swap/$swapmax - $swapperc%
+${color #00ffff}${swapbar}
+${color green}HDD (frei/maximal): ${alignr}${color #FFFFFF}${fs_free /}/${fs_size /}
+${color #00ffff}${fs_bar /}
+${alignr} ${color green} ${execi 60 du -sh ~/.local/share/Trash/files/ | awk '{print $1}' | sed '/^4.0K/ d'  | sed 's/$/ im Müll /'}
+${color orange}Name                    PID    CPU% MEM%
+${font Monospace:size=9}${color}${top name 1}${top pid 1}${top cpu 1}${top mem 1}
+${color}${top name 2}${top pid 2}${top cpu 2}${top mem 2}
+${color}${top name 3}${top pid 3}${top cpu 3}${top mem 3}
+${color}${top name 4}${top pid 4}${top cpu 4}${top mem 4}
+${color}${top name 5}${top pid 5}${top cpu 5}${top mem 5}
+${color}${top name 6}${top pid 6}${top cpu 6}${top mem 6}
+$font${color green}${font}Outbound Connection ${alignr} Remote Service/Port$color
+${font Monospace:size=8} ${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
+${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 1}
+${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
+${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
+${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
+${tcp_portmon 32768 61000 rhost 5} ${alignr} ${tcp_portmon 32768 61000 rservice 5}
+${color green}${font}Inbound Connection ${alignr} Local Service/Port$color
+${font Monospace:size=8} ${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
+${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
+${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
+${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
+${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
+${tcp_portmon 1 32767 rhost 5} ${alignr} ${tcp_portmon 1 32767 lservice 5}
+${color}${stippled_hr}
+${alignc}${font}${color green}Uptime: ${color} $uptime
+${alignc}${color green}Down: ${color} ${downspeed wlan0}/s - ${alignc} ${color green}Up: ${color} ${upspeed wlan0}/s
+${alignc}${color #ffffff}${downspeedgraph wlan0 48,140 ffc11f 00ffff} ${alignc}${color #ffffff}${upspeedgraph wlan0 48,140 ffc11f 00ffff}
+
+#${color}${execpi 60 DJS=`date +%_d`; cal | sed '/./!d' | sed 's/$/                     /' | fold -w 21 | sed -n '/^.\{21\}/p' | sed 's/^/${alignc} /' | sed /" $DJS "/s/" $DJS "/" "'${color #00ffff}'"$DJS"'${color}'" "/}
