@@ -88,7 +88,7 @@ colorscheme evening
 :set expandtab
 
 set runtimepath+=~/src/vim-addon-manager/
-call vam#ActivateAddons(["vim-haxe","The_NERD_tree","vimlatex","github:jmarkow/vim-matlab","github:tpope/vim-fugitive","github:klen/python-mode", "github:LaTeX-Box-Team/LaTeX-Box"], { 'auto_install': 1 }) 
+call vam#ActivateAddons(["vim-haxe","The_NERD_tree","vimlatex","github:StanAngeloff/php.vim","github:othree/html5.vim","github:tpope/vim-rails","github:vim-ruby/vim-ruby","github:jmarkow/vim-matlab","github:tpope/vim-fugitive","github:klen/python-mode", "github:LaTeX-Box-Team/LaTeX-Box"], { 'auto_install': 1 }) 
 
 :nmap <silent> <F2> :NERDTreeToggle<CR>
 :nmap <silent> <F3> :Gstatus<CR>
